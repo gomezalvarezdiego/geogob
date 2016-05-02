@@ -11,6 +11,13 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'PagesController@index');
+
+Route::get('about','PagesController@about');
+
+Route::get('visits', 'VisitsController@index');
+Route::get('visits/{visit}', 'VisitsController@show');
+Route::post('visits/{visit}/observations', 'ObservationsController@store');
+
+Route::get('observations/{observation}/edit', 'ObservationsController@edit');
+Route::patch('observations/{observation}/update', 'ObservationsController@update');
